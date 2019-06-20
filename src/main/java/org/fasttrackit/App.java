@@ -24,6 +24,11 @@ public class App {
 
         String petType = input.next();
 
+        Store store = new Store();
+        store.setName("Katy's Pet food and toys store");
+        store.setOpen(8);
+        store.setClose(16);
+
         Vet vet1 = new Vet();
         vet1.setName("Sofia");
         vet1.setPayment(10);
@@ -142,7 +147,7 @@ public class App {
 
 
         while (input.nextInt() == 1) {
-            if (Store.isOpen()) {
+            if (Store.isOpen(store.getOpen(),store.getClose())) {
             } else {
                 break;
             }

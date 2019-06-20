@@ -5,12 +5,12 @@ import java.util.Calendar;
 public class Store {
     private String name;
     private boolean isOpen;
+    private int open;
+    private int close;
 
-    public static boolean isOpen() {
+    public static boolean isOpen(int open ,int close) {
         Calendar calendar = Calendar.getInstance();
         int timeOfDay = calendar.get(calendar.HOUR_OF_DAY);
-        int open = 7;
-        int close = 16;
         if (timeOfDay < close && timeOfDay > open) {
             System.out.println("The store is open!");
             return true;
@@ -31,5 +31,21 @@ public class Store {
 
     public void setOpen(boolean open) {
         isOpen = open;
+    }
+
+    public int getOpen() {
+        return open;
+    }
+
+    public void setOpen(int open) {
+        this.open = open;
+    }
+
+    public int getClose() {
+        return close;
+    }
+
+    public void setClose(int close) {
+        this.close = close;
     }
 }
