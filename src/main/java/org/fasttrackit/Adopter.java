@@ -15,6 +15,21 @@ public class Adopter {
             int difference = 5 - hungerLevel;
             hungerLevel = 5;
             this.foodQuantity -=0.3*difference;
+            System.out.println("your pet is full now");
+        }
+        return hungerLevel;
+    }
+
+    public int feeding2(double premiumFoodQuantity, int hungerLevel) {
+        if (hungerLevel == 5)
+        {
+            System.out.println("your pet is full now");
+        }
+        else{
+            int difference = 5 - hungerLevel;
+            hungerLevel = 5;
+            this.premiumFoodQuantity -=0.15*difference;
+            System.out.println("your pet is full now");
         }
         return hungerLevel;
     }
