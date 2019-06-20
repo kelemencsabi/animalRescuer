@@ -2,14 +2,11 @@ package org.fasttrackit;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Calendar;
 import java.util.Scanner;
 
 
 public class App {
 
-
-    Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -102,17 +99,10 @@ public class App {
         toy3.setToyType("cage swing");
 
 
-        Cat cat = null;
-        Dog dog = null;
-        Bird bird = null;
-
-        Calendar calendar = Calendar.getInstance();
-
-
         switch (petType) {
 
             case "cat": {
-                cat = new Cat();
+                Cat cat = new Cat();
                 System.out.println("enter your pets name: ");
                 cat.setName(input.next());
                 System.out.println("enter your pets age: ");
@@ -164,7 +154,7 @@ public class App {
 
                                 System.out.println("How much? ");
                                 int quantity = input.nextInt();
-                                adopter.setMoney(adopter.getMoney() - quantity* food5.getPrice());
+                                adopter.setMoney(adopter.getMoney() - quantity * food5.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setFoodQuantity(adopter.getFoodQuantity() + quantity);
                                 System.out.println(quantity + "kg of regular food has been added to your inventory.");
@@ -173,13 +163,14 @@ public class App {
 
                                 System.out.println("How much? ");
                                 int quantity = input.nextInt();
-                                adopter.setMoney(adopter.getMoney() - quantity* food6.getPrice());
+                                adopter.setMoney(adopter.getMoney() - quantity * food6.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setPremiumFoodQuantity(adopter.getPremiumFoodQuantity() + quantity);
                                 System.out.println(quantity + "kg of premium food has been added to your inventory.");
                             }
                             break;
-                        case 2: System.out.println("what kind of food would you like to choose ? milk or whiskas ? ");
+                        case 2:
+                            System.out.println("what kind of food would you like to choose ? milk or whiskas ? ");
 
                             switch (input.next()) {
                                 case "milk":
@@ -263,7 +254,7 @@ public class App {
                                     break;
                                 case 5:
                                     System.out.println("your pet is full");
-                                    ;
+
                                     break;
 
                             }
@@ -275,7 +266,7 @@ public class App {
             }
 
             case "dog": {
-                dog = new Dog();
+                Dog dog = new Dog();
                 System.out.println("enter your pets name: ");
                 dog.setName(input.next());
                 System.out.println("enter your pets age: ");
@@ -334,7 +325,7 @@ public class App {
                             } else {
 
                                 System.out.println("How much? ");
-                                int  quantity = input.nextInt();
+                                int quantity = input.nextInt();
                                 adopter.setMoney(adopter.getMoney() - quantity * food4.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setPremiumFoodQuantity(adopter.getPremiumFoodQuantity() + quantity);
@@ -434,7 +425,7 @@ public class App {
             }
 
             case "bird": {
-                bird = new Bird();
+                Bird bird = new Bird();
                 System.out.println("enter your pets name: ");
                 bird.setName(input.next());
                 System.out.println("enter your pets age: ");
@@ -477,7 +468,7 @@ public class App {
                             food1.expirationDayCheck(food6.getExpirationDate(), LocalDate.now());
                             int foodChoice = input.nextInt();
 
-                            if (foodChoice >2) {
+                            if (foodChoice > 2) {
                                 System.out.println("your pet doesn't like the food you have chosen. Please choose something else.");
 
                             } else if (foodChoice % 2 == 1) {
@@ -583,7 +574,7 @@ public class App {
                                     break;
                                 case 5:
                                     System.out.println("your pet is full");
-                                    ;
+
                                     break;
                             }
                             break;
