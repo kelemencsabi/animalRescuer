@@ -9,12 +9,14 @@ public class Food {
     private String name;
     private LocalDate expirationDate;
 
-    public void expirationDayCheck(LocalDate expirationDate, LocalDate now) {
+    public boolean expirationDayCheck(LocalDate expirationDate, LocalDate now) {
 
         if (now.isBefore(expirationDate)) {
             System.out.println("this food hasn't expired yet");
+            return true;
         }else {
             System.out.println("this food has expired");
+            return false;
         }
     }
 

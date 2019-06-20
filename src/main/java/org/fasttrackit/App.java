@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class App {
 
 
-
     Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -31,7 +30,7 @@ public class App {
         Store store = new Store();
         store.setName("Katy's Pet food and toys store");
         store.setOpen(8);
-        store.setClose(16);
+        store.setClose(19);
 
         Work work = new Work();
         work.setName("Coffee shop");
@@ -164,8 +163,8 @@ public class App {
                             } else if (foodChoice % 2 == 1) {
 
                                 System.out.println("How much? ");
-                                double quantity = input.nextDouble();
-                                adopter.setMoney(adopter.getMoney() - 5 * food5.getPrice());
+                                int quantity = input.nextInt();
+                                adopter.setMoney(adopter.getMoney() - quantity* food5.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setFoodQuantity(adopter.getFoodQuantity() + quantity);
                                 System.out.println(quantity + "kg of regular food has been added to your inventory.");
@@ -173,16 +172,30 @@ public class App {
                             } else {
 
                                 System.out.println("How much? ");
-                                double quantity = input.nextDouble();
-                                adopter.setMoney(adopter.getMoney() - 5 * food6.getPrice());
+                                int quantity = input.nextInt();
+                                adopter.setMoney(adopter.getMoney() - quantity* food6.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setPremiumFoodQuantity(adopter.getPremiumFoodQuantity() + quantity);
                                 System.out.println(quantity + "kg of premium food has been added to your inventory.");
                             }
                             break;
-                        case 2:
-                                cat.setHungerLevel(adopter.feeding1(adopter.getFoodQuantity(),cat.getHungerLevel()));
-                                break;
+                        case 2: System.out.println("what kind of food would you like to choose ? milk or whiskas ? ");
+
+                            switch (input.next()) {
+                                case "milk":
+
+                                    cat.setHungerLevel(adopter.feeding1(adopter.getFoodQuantity(), cat.getHungerLevel()));
+                                    break;
+
+                                case "whiskas":
+                                    cat.setHungerLevel(adopter.feeding2(adopter.getPremiumFoodQuantity(), cat.getHungerLevel()));
+                                    break;
+                                default:
+                                    System.out.println("you don't have that kind of food");
+                                    break;
+                            }
+                            break;
+
                         case 3:
 
                             if (LocalTime.now().isAfter(vet1.getOpen()) && LocalTime.now().isBefore(vet1.getClose())) {
@@ -195,8 +208,8 @@ public class App {
                             }
                             break;
                         case 4:
-                            adopter.setMoney(work.work(work.getSalary(),adopter.getMoney()));
-                            work.setSalary(work.promotion(work.getTotalHours(),work.getSalary()));
+                            adopter.setMoney(work.work(work.getSalary(), adopter.getMoney()));
+                            work.setSalary(work.promotion(work.getTotalHours(), work.getSalary()));
                             System.out.println(adopter.getMoney());
                             System.out.println(work.getSalary());
                             break;
@@ -252,6 +265,7 @@ public class App {
                                     System.out.println("your pet is full");
                                     ;
                                     break;
+
                             }
                             break;
 
@@ -305,14 +319,14 @@ public class App {
                             food1.expirationDayCheck(food6.getExpirationDate(), LocalDate.now());
                             int foodChoice = input.nextInt();
 
-                            if (foodChoice <3 || foodChoice >4) {
+                            if (foodChoice < 3 || foodChoice > 4) {
                                 System.out.println("your pet doesn't like the food you have chosen. Please choose something else.");
 
                             } else if (foodChoice % 2 == 1) {
 
                                 System.out.println("How much? ");
-                                double quantity = input.nextDouble();
-                                adopter.setMoney(adopter.getMoney() - 5 * food5.getPrice());
+                                int quantity = input.nextInt();
+                                adopter.setMoney(adopter.getMoney() - quantity * food3.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setFoodQuantity(adopter.getFoodQuantity() + quantity);
                                 System.out.println(quantity + "kg of regular food has been added to your inventory.");
@@ -320,8 +334,8 @@ public class App {
                             } else {
 
                                 System.out.println("How much? ");
-                                double quantity = input.nextDouble();
-                                adopter.setMoney(adopter.getMoney() - 5 * food6.getPrice());
+                                int  quantity = input.nextInt();
+                                adopter.setMoney(adopter.getMoney() - quantity * food4.getPrice());
                                 System.out.println("you have " + adopter.getMoney() + "$ left.");
                                 adopter.setPremiumFoodQuantity(adopter.getPremiumFoodQuantity() + quantity);
                                 System.out.println(quantity + "kg of premium food has been added to your inventory.");
@@ -329,12 +343,20 @@ public class App {
                             break;
                         case 2:
                             System.out.println("what kind of food would you like to choose ? Regular or premium ? ");
-                            if (input.next().equals("regular")) {
-                            dog.setHungerLevel(adopter.feeding1(adopter.getFoodQuantity(), dog.getHungerLevel()));
-                        }else if(input.next().equals("premium")){
-                            dog.setHungerLevel(adopter.feeding2(adopter.getPremiumFoodQuantity(), dog.getHungerLevel()));
-                        }else
-                            System.out.println("you don't have that kind of food");
+
+                            switch (input.next()) {
+                                case "regular":
+
+                                    dog.setHungerLevel(adopter.feeding1(adopter.getFoodQuantity(), dog.getHungerLevel()));
+                                    break;
+
+                                case "premium":
+                                    dog.setHungerLevel(adopter.feeding2(adopter.getPremiumFoodQuantity(), dog.getHungerLevel()));
+                                    break;
+                                default:
+                                    System.out.println("you don't have that kind of food");
+                                    break;
+                            }
                             break;
                         case 3:
 
@@ -348,8 +370,8 @@ public class App {
                             }
                             break;
                         case 4:
-                            adopter.setMoney(work.work(work.getSalary(),adopter.getMoney()));
-                            work.setSalary(work.promotion(work.getTotalHours(),work.getSalary()));
+                            adopter.setMoney(work.work(work.getSalary(), adopter.getMoney()));
+                            work.setSalary(work.promotion(work.getTotalHours(), work.getSalary()));
                             System.out.println(adopter.getMoney());
                             System.out.println(work.getSalary());
                             break;
@@ -407,13 +429,9 @@ public class App {
                                     break;
                             }
                             break;
-
                     }
-
                 }
             }
-
-
 
             case "bird": {
                 bird = new Bird();
@@ -425,10 +443,153 @@ public class App {
                 bird.setHungerLevel(1);
                 bird.setFavoriteFood("seeds");
                 bird.setFeatherColor("Blue");
-                break;
 
+                while (true) {
+
+                    System.out.println("what whould you like to do? "
+                            + "1.buy food or toys "
+                            + "2.feed your pet "
+                            + "3.go to the vet "
+                            + "4.go to work"
+                            + "5.check inventory "
+                            + "6.check pet status ");
+
+                    int numberOfAction = input.nextInt();
+
+                    switch (numberOfAction) {
+                        case 1:
+                            if (Store.isOpen(store.getOpen(), store.getClose())) {
+                            } else {
+                                break;
+                            }
+                            System.out.println("what food would you like to buy?");
+                            System.out.println("1:" + food1.getName() + ", " + food1.getPrice() + "$/kg, " + food1.getAvailableQuantity() + "kg.");
+                            food1.expirationDayCheck(food1.getExpirationDate(), LocalDate.now());
+                            System.out.println("2:" + food2.getName() + ", " + food2.getPrice() + "$/kg, " + food2.getAvailableQuantity() + "kg.");
+                            food1.expirationDayCheck(food2.getExpirationDate(), LocalDate.now());
+                            System.out.println("3:" + food3.getName() + ", " + food3.getPrice() + "$/kg, " + food3.getAvailableQuantity() + "kg.");
+                            food1.expirationDayCheck(food3.getExpirationDate(), LocalDate.now());
+                            System.out.println("4:" + food4.getName() + ", " + food4.getPrice() + "$/kg, " + food4.getAvailableQuantity() + "kg.");
+                            food1.expirationDayCheck(food4.getExpirationDate(), LocalDate.now());
+                            System.out.println("5:" + food5.getName() + ", " + food5.getPrice() + "$/l, " + food5.getAvailableQuantity() + "l.");
+                            food1.expirationDayCheck(food5.getExpirationDate(), LocalDate.now());
+                            System.out.println("6:" + food6.getName() + ", " + food6.getPrice() + "$/kg, " + food6.getAvailableQuantity() + "kg.");
+                            food1.expirationDayCheck(food6.getExpirationDate(), LocalDate.now());
+                            int foodChoice = input.nextInt();
+
+                            if (foodChoice >2) {
+                                System.out.println("your pet doesn't like the food you have chosen. Please choose something else.");
+
+                            } else if (foodChoice % 2 == 1) {
+
+                                System.out.println("How much? ");
+                                int quantity = input.nextInt();
+                                adopter.setMoney(adopter.getMoney() - quantity * food1.getPrice());
+                                System.out.println("you have " + adopter.getMoney() + "$ left.");
+                                adopter.setFoodQuantity(adopter.getFoodQuantity() + quantity);
+                                System.out.println(quantity + "kg of regular food has been added to your inventory.");
+
+                            } else {
+
+                                System.out.println("How much? ");
+                                int quantity = input.nextInt();
+                                adopter.setMoney(adopter.getMoney() - quantity * food2.getPrice());
+                                System.out.println("you have " + adopter.getMoney() + "$ left.");
+                                adopter.setPremiumFoodQuantity(adopter.getPremiumFoodQuantity() + quantity);
+                                System.out.println(quantity + "kg of premium food has been added to your inventory.");
+                            }
+                            break;
+                        case 2:
+                            System.out.println("what kind of food would you like to choose ? insects or seeds ? ");
+
+                            switch (input.next()) {
+                                case "insects":
+
+                                    bird.setHungerLevel(adopter.feeding1(adopter.getFoodQuantity(), bird.getHungerLevel()));
+                                    break;
+
+                                case "seeds":
+                                    bird.setHungerLevel(adopter.feeding2(adopter.getPremiumFoodQuantity(), bird.getHungerLevel()));
+                                    break;
+                                default:
+                                    System.out.println("you don't have that kind of food");
+                                    break;
+                            }
+                            break;
+                        case 3:
+
+                            if (LocalTime.now().isAfter(vet1.getOpen()) && LocalTime.now().isBefore(vet1.getClose())) {
+                                bird.setHealthStatus(vet1.examination(vet1.getPayment(), bird.getHealthStatus(), adopter.getMoney()));
+                            } else if (LocalTime.now().isAfter(vet2.getOpen2()) && LocalTime.now().isBefore(vet2.getClose2())) {
+                                bird.setHealthStatus(vet2.examination(vet2.getPayment(), bird.getHealthStatus(), adopter.getMoney()));
+                            } else {
+                                System.out.println("The Veterinary Clinic is closed!");
+                                break;
+                            }
+                            break;
+                        case 4:
+                            adopter.setMoney(work.work(work.getSalary(), adopter.getMoney()));
+                            work.setSalary(work.promotion(work.getTotalHours(), work.getSalary()));
+                            System.out.println(adopter.getMoney());
+                            System.out.println(work.getSalary());
+                            break;
+
+
+                        case 5:
+                            System.out.println(adopter.getName() + "'s inventory:");
+                            System.out.println("you have " + adopter.getMoney() + "$.");
+                            System.out.println("you have " + adopter.getFoodQuantity() + "kg of regular bird food.");
+                            System.out.println("you have " + adopter.getPremiumFoodQuantity() + "kg of premium bird food.");
+                            break;
+                        case 6:
+
+                            System.out.println("name: " + bird.getName());
+                            System.out.println("age:" + bird.getAge());
+                            System.out.println("pet type: " + petType);
+                            switch (bird.getHealthStatus()) {
+
+                                case 1:
+                                    System.out.println("your pet is extremely ill.");
+                                    break;
+
+                                case 2:
+                                    System.out.println("your pet is very sick.");
+                                    break;
+
+                                case 3:
+                                    System.out.println("your pet is sick. ");
+                                    break;
+
+                                case 4:
+                                    System.out.println("your pet is ok ");
+                                    break;
+
+                                case 5:
+                                    System.out.println("your pet is healthy");
+                                    break;
+                            }
+                            switch (bird.getHungerLevel()) {
+                                case 1:
+                                    System.out.println("your pet is starving");
+                                    break;
+                                case 2:
+                                    System.out.println("your pet is really hungry");
+                                    break;
+                                case 3:
+                                    System.out.println("your pet is hungry");
+                                    break;
+                                case 4:
+                                    System.out.println("your pet is not hungry");
+                                    break;
+                                case 5:
+                                    System.out.println("your pet is full");
+                                    ;
+                                    break;
+                            }
+                            break;
+                    }
+                }
             }
         }
-
     }
 }

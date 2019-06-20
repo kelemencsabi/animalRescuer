@@ -7,28 +7,33 @@ public class Adopter {
     private double premiumFoodQuantity;
 
     public int feeding1(double foodQuantity, int hungerLevel) {
-        if (hungerLevel == 5)
-        {
+        if (hungerLevel == 5) {
             System.out.println("your pet is full now");
-        }
-        else{
+        } else {
             int difference = 5 - hungerLevel;
+            if ((0.30 * difference) > foodQuantity) {
+                System.out.println("you dont have enough food");
+                return hungerLevel;
+            }
             hungerLevel = 5;
-            this.foodQuantity -=0.3*difference;
+            this.foodQuantity -= 0.3 * difference;
             System.out.println("your pet is full now");
         }
         return hungerLevel;
     }
 
     public int feeding2(double premiumFoodQuantity, int hungerLevel) {
-        if (hungerLevel == 5)
-        {
+
+        if (hungerLevel == 5) {
             System.out.println("your pet is full now");
-        }
-        else{
+        } else {
             int difference = 5 - hungerLevel;
+            if ((0.15 * difference) > premiumFoodQuantity) {
+                System.out.println("you dont have enough food");
+                return hungerLevel;
+            }
             hungerLevel = 5;
-            this.premiumFoodQuantity -=0.15*difference;
+            this.premiumFoodQuantity -= 0.15 * difference;
             System.out.println("your pet is full now");
         }
         return hungerLevel;
