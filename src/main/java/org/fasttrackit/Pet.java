@@ -7,6 +7,7 @@ public class Pet {
     private int healthStatus;
     private int age;
 
+
     public String getName() {
         return name;
     }

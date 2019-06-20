@@ -6,6 +6,20 @@ public class Adopter {
     private double foodQuantity;
     private double premiumFoodQuantity;
 
+    public int feeding1(double foodQuantity, int hungerLevel) {
+        if (hungerLevel == 5)
+        {
+            System.out.println("your pet is full now");
+        }
+        else{
+            int difference = 5 - hungerLevel;
+            hungerLevel = 5;
+            this.foodQuantity -=0.3*difference;
+        }
+        return hungerLevel;
+    }
+
+
     public String getName() {
         return name;
     }

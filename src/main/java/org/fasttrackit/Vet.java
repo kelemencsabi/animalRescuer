@@ -7,7 +7,7 @@ public class Vet {
     private String name;
     private int payment;
     private LocalTime open = LocalTime.of(8, 0, 0);
-    private LocalTime close = LocalTime.of(13, 0, 0);
+    private LocalTime close = LocalTime.of(14, 0, 0);
     private LocalTime open2 = LocalTime.of(15, 0, 0);
     private LocalTime close2 = LocalTime.of(22, 0, 0);
 
@@ -73,4 +73,10 @@ public class Vet {
     public void setClose2(LocalTime close2) {
         this.close2 = close2;
     }
+
+
+
+
+
+
 }
