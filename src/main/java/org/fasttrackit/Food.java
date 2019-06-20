@@ -1,6 +1,5 @@
 package org.fasttrackit;
 
-
 import java.time.LocalDate;
 
 public class Food {
@@ -8,13 +7,15 @@ public class Food {
     private int price;
     private int availableQuantity;
     private String name;
+    private LocalDate expirationDate;
 
-    public LocalDate time(String[] args, int numberOfDays, int numberOfMonths) {
+    public void expirationDayCheck(LocalDate expirationDate, LocalDate now) {
 
-
-        LocalDate expirationDate = (LocalDate.now().plusMonths(numberOfMonths).plusDays(numberOfDays));
-        System.out.println("expiration date: " + expirationDate);
-        return expirationDate;
+        if (now.isBefore(expirationDate)) {
+            System.out.println("this food hasn't expired yet");
+        }else {
+            System.out.println("this food has expired");
+        }
     }
 
     public int getPrice() {
@@ -39,6 +40,14 @@ public class Food {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
     }
 }
 

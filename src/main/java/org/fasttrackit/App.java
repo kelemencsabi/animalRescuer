@@ -1,6 +1,7 @@
 package org.fasttrackit;
 
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Calendar;
 import java.util.Scanner;
@@ -42,42 +43,43 @@ public class App {
         food1.setPrice(8);
         food1.setAvailableQuantity(34);
         food1.setName("insects");
-        food1.time(args, 2, 5);
+        food1.setExpirationDate(LocalDate.of((2019),(9),(3)));
+
 
 
         Food food2 = new Food();
         food2.setPrice(10);
         food2.setAvailableQuantity(27);
         food2.setName("seeds");
-        food2.time(args, 12, 4);
+        food2.setExpirationDate(LocalDate.of((2019),(7),(3)));
 
 
         Food food3 = new Food();
         food3.setPrice(3);
         food3.setAvailableQuantity(42);
         food3.setName("dog food");
-        food3.time(args, 1, 3);
+        food3.setExpirationDate(LocalDate.of((2019),(4),(12)));
 
 
         Food food4 = new Food();
         food4.setPrice(5);
         food4.setAvailableQuantity(50);
         food4.setName("premium dog food");
-        food4.time(args, 14, 5);
+        food4.setExpirationDate(LocalDate.of((2019),(8),(23)));
 
 
         Food food5 = new Food();
         food5.setPrice(7);
         food5.setAvailableQuantity(30);
         food5.setName("milk");
-        food5.time(args, 5, 2);
+        food5.setExpirationDate(LocalDate.of((2019),(6),(13)));
 
 
         Food food6 = new Food();
         food6.setPrice(9);
         food6.setAvailableQuantity(68);
         food6.setName("whiskas");
-        food6.time(args, 2, 6);
+        food6.setExpirationDate(LocalDate.of((2019),(9),(25)));
 
         Toy toy1 = new Toy();
         toy1.setToyColor("blue");
@@ -153,11 +155,17 @@ public class App {
             }
             System.out.println("what food would you like to buy?");
             System.out.println("1:" + food1.getName() + ", " + food1.getPrice() + "$/kg, " + food1.getAvailableQuantity() + "kg.");
+            food1.expirationDayCheck(food1.getExpirationDate(),LocalDate.now());
             System.out.println("2:" + food2.getName() + ", " + food2.getPrice() + "$/kg, " + food2.getAvailableQuantity() + "kg.");
+            food1.expirationDayCheck(food2.getExpirationDate(),LocalDate.now());
             System.out.println("3:" + food3.getName() + ", " + food3.getPrice() + "$/kg, " + food3.getAvailableQuantity() + "kg.");
+            food1.expirationDayCheck(food3.getExpirationDate(),LocalDate.now());
             System.out.println("4:" + food4.getName() + ", " + food4.getPrice() + "$/kg, " + food4.getAvailableQuantity() + "kg.");
+            food1.expirationDayCheck(food4.getExpirationDate(),LocalDate.now());
             System.out.println("5:" + food5.getName() + ", " + food5.getPrice() + "$/l, " + food5.getAvailableQuantity() + "l.");
+            food1.expirationDayCheck(food5.getExpirationDate(),LocalDate.now());
             System.out.println("6:" + food6.getName() + ", " + food6.getPrice() + "$/kg, " + food6.getAvailableQuantity() + "kg.");
+            food1.expirationDayCheck(food6.getExpirationDate(),LocalDate.now());
 
 
             int foodChoice = input.nextInt();
