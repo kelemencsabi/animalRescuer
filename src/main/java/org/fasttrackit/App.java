@@ -102,7 +102,7 @@ public class App {
         switch (petType) {
 
             case "cat": {
-                Cat cat = new Cat();
+                Cat cat = new Cat("gray");
                 System.out.println("enter your pets name: ");
                 cat.setName(input.next());
                 System.out.println("enter your pets age: ");
@@ -110,7 +110,7 @@ public class App {
                 cat.setHealthStatus(1);
                 cat.setHungerLevel(1);
                 cat.setFavoriteFood("whiskas");
-                cat.setFurColor("gray");
+
 
 
                 while (true) {
@@ -266,7 +266,7 @@ public class App {
             }
 
             case "dog": {
-                Dog dog = new Dog();
+                Dog dog = new Dog(2);
                 System.out.println("enter your pets name: ");
                 dog.setName(input.next());
                 System.out.println("enter your pets age: ");
@@ -274,7 +274,7 @@ public class App {
                 dog.setHealthStatus(1);
                 dog.setHungerLevel(1);
                 dog.setFavoriteFood("premium dog food");
-                dog.setSize(2);
+
 
                 while (true) {
 
@@ -416,7 +416,7 @@ public class App {
                                     break;
                                 case 5:
                                     System.out.println("your pet is full");
-                                    ;
+
                                     break;
                             }
                             break;
@@ -425,7 +425,7 @@ public class App {
             }
 
             case "bird": {
-                Bird bird = new Bird();
+                Bird bird = new Bird("blue");
                 System.out.println("enter your pets name: ");
                 bird.setName(input.next());
                 System.out.println("enter your pets age: ");
@@ -433,7 +433,7 @@ public class App {
                 bird.setHealthStatus(1);
                 bird.setHungerLevel(1);
                 bird.setFavoriteFood("seeds");
-                bird.setFeatherColor("Blue");
+
 
                 while (true) {
 

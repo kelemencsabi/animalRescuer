@@ -11,4 +11,8 @@ public class Cat extends Pet {
     public void setFurColor(String furColor) {
         this.furColor = furColor;
     }
+
+    public Cat(String furColor) {
+        this.furColor = furColor;
+    }
 }

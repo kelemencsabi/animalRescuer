@@ -11,4 +11,8 @@ public class Bird extends Pet {
     public void setFeatherColor(String featherColor) {
         this.featherColor = featherColor;
     }
+
+    public Bird(String featherColor){
+        this.featherColor =featherColor;
+    }
 }

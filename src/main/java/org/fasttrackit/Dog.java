@@ -12,4 +12,8 @@ public class Dog extends Pet {
         this.size = size;
     }
 
+    public Dog(int size) {
+        this.size = size;
+    }
+
 }
